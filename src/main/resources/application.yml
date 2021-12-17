@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: discovery-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL}
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+    import: configserver:${DOCKER_CONFIG_SERVER_URL}
